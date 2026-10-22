@@ -1,0 +1,6 @@
+{
+  "name": "AIS Enterprise Systems — Gemini 4 Argon Command Center",
+  "description": "Executive Relief Cockpit, 1-Tap WhatsApp Blitz, 8-Katha REDMA Audit, 4-in-1 Document Vault, and Supabase RLS Engine for Rizum Khan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

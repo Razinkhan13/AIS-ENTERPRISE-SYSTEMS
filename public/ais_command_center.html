@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>AIS Enterprise Systems — Gemini 4 Argon Command Center</title>
+  <meta name="description" content="Executive Relief Cockpit, 1-Tap WhatsApp Blitz, 8-Katha REDMA Audit, 4-in-1 Document Vault, and Supabase RLS Engine for Rizum Khan." />
+  
+  <!-- Stitch Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'Space Grotesk', 'sans-serif'],
+            header: ['Space Grotesk', 'Syne', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            'mono-num': ['JetBrains Mono', 'monospace'],
+            bangla: ['Noto Sans Bengali', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#070A0F',
+            navy: '#0F1722',
+            cardborder: '#1E293B',
+            cyanaccent: '#38BDF8',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg-obsidian: #070A0F;
+      --bg-navy: #0F1722;
+      --border-card: #1E293B;
+      --accent-cyan: #38BDF8;
+      --success-emerald: #10B981;
+      --danger-rose: #F43F5E;
+      --warning-amber: #F59E0B;
+    }
+    body {
+      background-color: #070A0F;
+      background-image: 
+        radial-gradient(ellipse 90% 50% at 50% -20%, rgba(56, 189, 248, 0.12), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 90% 15%, rgba(16, 185, 129, 0.05), transparent 50%),
+        radial-gradient(ellipse 50% 30% at 10% 35%, rgba(56, 189, 248, 0.04), transparent 50%);
+      background-attachment: fixed;
+      color: #F1F5F9;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .tactical-glass {
+      background: rgba(15, 23, 34, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: inset 0 1px 0 0 rgba(56, 189, 248, 0.22), 0 10px 30px -5px rgba(0, 0, 0, 0.7);
+    }
+    .tactical-specular {
+      box-shadow: inset 0 1px 0 0 rgba(56, 189, 248, 0.22);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+    }
+    .glow-rose {
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.3);
+    }
+    .glow-emerald {
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+    }
+    @media print {
+      body { background-color: #ffffff !important; color: #0f1722 !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-[#38BDF8] selection:text-black">
+  <div id="app" class="flex-1 flex flex-col">
+    <!-- Loaded dynamically by standalone script below -->
+  </div>
+
+  <script>
+    // CORPORATE DATA
+    const CORPORATE_INFO = {
+      brandName: 'AIS Enterprise Systems (Army IBA Specialist)',
+      founder: 'Rizum Khan',
+      founderTitle: 'Founder & Final Signatory',
+      hq: '15 Mayakanon, Basaboo, Khilgaon, Dhaka-1214, Bangladesh',
+      trustBank: {
+        bankName: 'Trust Bank PLC',
+        branch: 'Jalalabad Cantonment Branch',
+        accountNumber: '00110466000494',
+        accountTitle: 'AIS ENTERPRISE SYSTEMS',
+      },
+      mfs: {
+        bkash: '01715219176',
+        nagad: '01708761298',
+      },
+      nbr: {
+        bin: '004982103-0101',
+        serviceCode: 'S099.10',
+        vatRate: 0.05,
+        vatDescription: 'IT Enabled Services & Hosted ERP Software (5.0% Statutory VAT)',
+      },
+      warranty: 'If AIS does not cut inbound lead response time to sub-4 minutes (including 24/7 UK/US/Gulf NRB diaspora inquiries) and qualify at least 5x our fee in verified buyer pipeline within 60 days, we return 100% of our fee and you retain all installed workflows, code, and systems.',
+    };
+
+    const VERIFIED_TARGETS = [
+      {
+        id: '1', slug: 'sheltech', name: 'Sheltech (Pvt.) Ltd.', established: 1988, projectsCount: 170,
+        location: 'Panthapath, Dhaka', category: 'tier1', flagshipProject: 'Sheltech Bithika (Banani/Gulshan)',
+        unitSpec: '3,150 sq ft • Luxury Penthouse / Duplex', bdtPrice: '৳ 4.85 Cr',
+        diagnosedVulnerability: 'Cited for 25% booking cancellations; REDMA Sec 14 (90% refund in 90d) drains active site cash while Sec 15 adds 15% delay interest.',
+        customSolution: 'Ring-fence 1 condominium in Trust Bank Escrow; subdivide cancelled >2,000 sqft flats into 800–1,200 sqft units (≥ 82% efficiency); 18-mo build.',
+        defaultCurrency: 'USD'
+      },
+      {
+        id: '2', slug: 'concord', name: 'Concord Real Estate Ltd.', established: 1973, projectsCount: 1200,
+        location: 'Gulshan-2, Dhaka', category: 'tier1', flagshipProject: 'Concord Grand (Gulshan-2)',
+        unitSpec: '3,300 sq ft • Ultra-Luxury Residence', bdtPrice: '৳ 5.20 Cr',
+        diagnosedVulnerability: 'Capital trapped in large towers due to 20–40% DAP FAR cuts and 25–30% rebar/cement surge despite AA+ rating.',
+        customSolution: 'Pair Concord ready-mix/precast with aluminum formwork (slab cycle 25d → 8d); spin off Grade-A commercial floors into a Private REIT SPV.',
+        defaultCurrency: 'USD'
+      },
+      {
+        id: '3', slug: 'bti', name: 'bti (Building Tech & Ideas)', established: 1984, projectsCount: 400,
+        location: 'Gulshan-2, Dhaka', category: 'tier1', flagshipProject: 'bti Celebration Point (Gulshan-2)',
+        unitSpec: '3,200 sq ft • Signature Smart Condo', bdtPrice: '৳ 5.10 Cr',
+        diagnosedVulnerability: 'Velocity fell from 5–8 to 1–2 units/mo; holding unsold >2,200 sqft units costs BDT 1,800–3,200/sqft/yr.',
+        customSolution: 'Bulk-liquidate 12–15 stagnant luxury units at 12–18% corporate discount to unlock BDT 25–40 Cr cash; connect ISO CRM to NRB NRTA 75% mortgages.',
+        defaultCurrency: 'GBP'
+      },
+      {
+        id: '4', slug: 'dominno', name: 'Dom-Inno Developers Ltd.', established: 2002, projectsCount: 253,
+        location: 'Gulshan-2, Dhaka', category: 'tier1', flagshipProject: 'Dom-Inno Terreno (Dhanmondi/Gulshan)',
+        unitSpec: '2,650 sq ft • Boutique Luxury Suite', bdtPrice: '৳ 3.70 Cr',
+        diagnosedVulnerability: 'Prime Dhanmondi/Uttara/Gulshan boutique sites squeezed by BDT 2Cr+ signing outlays & BDT 1–2L/mo displacement rent.',
+        customSolution: 'Deploy the 8-Katha Empirical Sandbox on 1 boutique JVA site; use light-gauge steel partitions to cut build time 45% & save 38% displacement rent.',
+        defaultCurrency: 'USD'
+      },
+      {
+        id: '5', slug: 'sel', name: 'The Structural Engineers (SEL)', established: 1983, projectsCount: 236,
+        location: 'Panthapath, Dhaka', category: 'tier1', flagshipProject: 'SEL Nibash (Dhanmondi/Panthapath)',
+        unitSpec: '2,450 sq ft • Engineering Landmark', bdtPrice: '৳ 3.40 Cr',
+        diagnosedVulnerability: '2021–2023 fixed-price pre-sales eroded by rebar hitting Tk 108k/MT and cement hitting Tk 580/bag (+25–30% surge).',
+        customSolution: 'Execute factory-gate indexed supply contracts with BSRM/GPH & Crown (saving 8–12%) + deploy Phase IV Digital Escrow ERP (<2% material waste).',
+        defaultCurrency: 'AED'
+      },
+      {
+        id: '6', slug: 'navana', name: 'Navana Real Estate Ltd.', established: 1996, projectsCount: 250,
+        location: 'Gulshan-1, Dhaka', category: 'tier1', flagshipProject: 'Navana Strand (Gulshan-2)',
+        unitSpec: '3,400 sq ft • Waterfront Elite Suite', bdtPrice: '৳ 5.40 Cr',
+        diagnosedVulnerability: 'Centralized treasury pooling across Dhaka & Chattogram exposes healthy sites to stalled towers while OD compounds at 12–17%.',
+        customSolution: 'Quarantine 100% of active condominium clusters into standalone Project Escrows; liquidate slow peripheral stock to retire 40% of OD debt in Year 1.',
+        defaultCurrency: 'USD'
+      },
+      {
+        id: '7', slug: 'rupayan', name: 'Rupayan Housing Estate Ltd.', established: 1998, projectsCount: 144,
+        location: 'Uttara, Dhaka', category: 'tier1', flagshipProject: 'Rupayan City Uttara (Mega Township)',
+        unitSpec: '2,800 sq ft • Gated Community Condominium', bdtPrice: '৳ 3.90 Cr',
+        diagnosedVulnerability: 'High exposure to The Zamindar Fallacy—holding mega-township large inventory at headline prices under 14–17% debt drag.',
+        customSolution: 'Package 15 stagnant township units for institutional bulk sale at 15% discount to release BDT 35 Cr immediately + launch NRB NRTA Township Desk.',
+        defaultCurrency: 'GBP'
+      },
+      {
+        id: '8', slug: 'ehl', name: 'Eastern Housing Ltd. (EHL)', established: 1964, projectsCount: 100,
+        location: 'Motijheel, Dhaka', category: 'tier1', flagshipProject: 'EHL Banani Lakeview',
+        unitSpec: '2,850 sq ft • Lakefront Residence', bdtPrice: '৳ 4.10 Cr',
+        diagnosedVulnerability: 'Sole DSE-listed developer; national deed registration drop (-42.73%) and Occupancy Certificate delays suppress ROE.',
+        customSolution: 'Deploy automated BNBC/RAJUK compliance ERP to cut Occupancy Certificate time by 60%, accelerate Saf Kabala deeds, and target ≥ 24% ROE REIT.',
+        defaultCurrency: 'USD'
+      },
+      {
+        id: '9', slug: 'anwar', name: 'Anwar Landmark Ltd.', established: 2001, projectsCount: 50,
+        location: 'Baitul View, Dhaka', category: 'tier1', flagshipProject: 'Anwar Landmark Hossain Tower',
+        unitSpec: '2,750 sq ft • Contemporary Suite', bdtPrice: '৳ 3.85 Cr',
+        diagnosedVulnerability: 'Hit by Dhaka 1,450+ JVA terminations triggered by 15% NBR tax on landowner mouza value and cash signing money.',
+        customSolution: 'Replace taxed cash signing money with ring-fenced SPV equity and integrate internal Anwar Group building materials into Digital Escrow ERP (<2% waste).',
+        defaultCurrency: 'AED'
+      },
+      {
+        id: '10', slug: 'shanta', name: 'Shanta Holdings Ltd.', established: 2005, projectsCount: 40,
+        location: 'Tejgaon / Gulshan, Dhaka', category: 'tier1', flagshipProject: 'Shanta Forum / Pinnacle',
+        unitSpec: '3,800 sq ft • Ultra-Luxury Landmark', bdtPrice: '৳ 6.80 Cr',
+        diagnosedVulnerability: 'Ultra-luxury (>2,500 sqft) demand contraction after withdrawal of undisclosed income tax concessions and HNW caution.',
+        customSolution: 'Transition ultra-luxury exposure into Foreign Currency (FC) / NRTA Repatriation Suites for global diaspora & structure Grade-A towers into Private REITs.',
+        defaultCurrency: 'USD'
+      }
+    ];
+
+    // APPLICATION STATE
+    let currentTab = 'whatsapp';
+    let currentLang = 'en';
+    let lockedAmountBDT = 70000000; // ৳70.0 Lakh initial
+    let isClientMode = false;
+    let clientSlug = 'sheltech';
+
+    // Check URL parameters
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('demo') || params.get('client')) {
+      isClientMode = true;
+      clientSlug = params.get('demo') || params.get('client');
+    }
+
+    // Audio chime synthesizer
+    function playChime() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const now = ctx.currentTime;
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(1046.50, now);
+        osc1.frequency.exponentialRampToValueAtTime(1567.98, now + 0.15);
+
+        osc2.type = 'triangle';
+        osc2.frequency.setValueAtTime(523.25, now);
+        osc2.frequency.exponentialRampToValueAtTime(783.99, now + 0.15);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.3, now + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.6);
+
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc1.start(now);
+        osc2.start(now);
+        osc1.stop(now + 0.6);
+        osc2.stop(now + 0.6);
+      } catch (e) {
+        console.debug('Audio chime skipped', e);
+      }
+    }
+
+    function renderApp() {
+      const container = document.getElementById('app');
+      if (isClientMode) {
+        renderClientView(container);
+      } else {
+        renderAdminView(container);
+      }
+    }
+
+    function renderClientView(container) {
+      const client = VERIFIED_TARGETS.find(t => t.slug === clientSlug) || VERIFIED_TARGETS[0];
+      const waMsg = encodeURIComponent(`Hello Rizum Bhai, I am reviewing the AIS Executive Turnaround Prototype prepared for ${client.name} (${client.flagshipProject}). Let's discuss mobilizing this sandbox.`);
+
+      container.innerHTML = `
+        <!-- Client Executive Header -->
+        <header class="sticky top-0 z-50 bg-[#080C12]/95 backdrop-blur-md border-b border-[#1E293B]">
+          <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-slate-900 border border-[#38BDF8]/60 glow-cyan overflow-hidden shrink-0 flex items-center justify-center shadow-[inset_0_1px_0_0_rgba(56,189,248,0.4)]">
+                <img src="/assets/aistudio/images_3598e51a.jfif" alt="AIS Official Logo" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-display font-bold text-white text-sm sm:text-base tracking-wide">
+                    AIS ENTERPRISE SYSTEMS
+                  </span>
+                  <span class="text-[10px] font-mono-num font-semibold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/40">
+                    CONFIDENTIAL
+                  </span>
+                </div>
+                <p class="text-xs text-[#38BDF8] font-mono-num font-medium">
+                  EXECUTIVE PROTOTYPE PREPARED EXCLUSIVELY FOR: <strong class="text-white uppercase">${client.name}</strong>
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button onclick="toggleLang()" class="px-3 py-1.5 rounded-lg bg-[#0F1722] hover:bg-slate-800 border border-[#1E293B] text-slate-200 text-xs font-bangla">
+                ${currentLang === 'en' ? '🇧🇩 বাংলা' : '🇬🇧 English'}
+              </button>
+              <a href="https://wa.me/8801715219176?text=${waMsg}" target="_blank" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-emerald-950">
+                <span>💬 Message Rizum Khan (Founder)</span>
+              </a>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Client Experience -->
+        <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-6 pb-20 space-y-8">
+          <!-- Hero Section -->
+          <section class="bg-gradient-to-br from-[#0F1722] via-[#080C12] to-[#0F1722] border border-[#1E293B] rounded-2xl p-6 sm:p-8 shadow-2xl glow-cyan">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#1E293B]">
+              <div>
+                <div class="text-xs font-mono-num text-slate-400 mb-1">
+                  Est. ${client.established} • ${client.location} • ${client.projectsCount}+ Projects Delivered
+                </div>
+                <h1 class="font-display font-extrabold text-2xl sm:text-3xl text-white tracking-wide">
+                  ${client.name}
+                </h1>
+                <p class="text-sm text-slate-300 mt-1">
+                  Flagship Asset Turnaround: <strong class="text-[#38BDF8]">${client.flagshipProject}</strong>
+                </p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-right">
+                <div class="text-[11px] text-slate-400">Spec & Pricing Benchmark:</div>
+                <div class="text-lg font-mono-num font-bold text-emerald-400 mt-0.5">${client.bdtPrice}</div>
+                <div class="text-[11px] text-slate-400 font-mono-num">${client.unitSpec}</div>
+              </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div class="bg-[#080C12] border border-rose-500/30 rounded-xl p-4">
+                <span class="font-semibold text-rose-400 font-mono-num uppercase block mb-1">Diagnosed Macro Vulnerability</span>
+                <p class="text-slate-300 leading-relaxed">${client.diagnosedVulnerability}</p>
+              </div>
+              <div class="bg-[#080C12] border border-[#38BDF8]/40 rounded-xl p-4 glow-cyan">
+                <span class="font-semibold text-[#38BDF8] font-mono-num uppercase block mb-1">AIS Dedicated Sandbox Solution</span>
+                <p class="text-slate-300 leading-relaxed">${client.customSolution}</p>
+              </div>
+              <div class="bg-[#080C12] border border-emerald-500/40 rounded-xl p-4 glow-emerald">
+                <span class="font-semibold text-emerald-400 font-mono-num uppercase block mb-1">60-Day 5× Pipeline Guarantee</span>
+                <p class="text-emerald-200/90 leading-relaxed">"${CORPORATE_INFO.warranty}"</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Live 38-Second NRB WhatsApp Chat Simulator -->
+          <section class="bg-[#0F1722] border border-[#1E293B] rounded-2xl p-5 sm:p-6 shadow-xl space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-[#1E293B]">
+              <div>
+                <h2 class="font-display font-bold text-white text-base">Live 38-Second NRB WhatsApp Concierge Simulator</h2>
+                <p class="text-xs text-slate-400">Autonomous foreign-currency qualification while Dhaka sleeps</p>
+              </div>
+              <span class="text-xs font-mono-num text-emerald-400 bg-emerald-950/60 px-2 py-1 rounded border border-emerald-500/40">
+                SLA: 38s Instant Response
+              </span>
+            </div>
+
+            <div class="bg-[#080C12] rounded-2xl border border-slate-800 p-4 space-y-3 text-xs">
+              <div class="flex justify-end">
+                <div class="max-w-[85%] bg-[#005c4b] text-slate-100 rounded-2xl rounded-tr-xs p-3">
+                  <p>“Hi, I'm calling from New York (2:14 AM BD Time). I saw your ad for <strong>${client.flagshipProject}</strong>. Is there an upper-floor 3-bed unit available? What is the USD price and central bank NRTA booking procedure?”</p>
+                  <div class="text-[10px] text-emerald-300 font-mono-num text-right mt-1">02:14 AM • Delivered ✓✓</div>
+                </div>
+              </div>
+              <div class="flex justify-start">
+                <div class="max-w-[90%] bg-[#202c33] text-slate-200 rounded-2xl rounded-tl-xs p-3 border border-slate-700/60">
+                  <div class="text-[10px] text-[#38BDF8] font-mono-num font-semibold mb-1">⚡ Response Time: 38s • Converted at BB Official Rate</div>
+                  <p class="leading-relaxed">
+                    “Assalamu Alaikum Sir. Thank you for your inquiry from New York regarding <strong>${client.flagshipProject}</strong> by ${client.name}.<br/><br/>
+                    • <strong>Spec:</strong> ${client.unitSpec}<br/>
+                    • <strong>Total Consideration:</strong> ${client.bdtPrice} (Approx: <strong>$404,166 USD</strong> @ 120 BDT/USD)<br/>
+                    • <strong>30% NRTA Down Payment:</strong> $121,250 USD<br/>
+                    • <strong>36-Month Construction EMI:</strong> $7,858 USD / month<br/><br/>
+                    Unit 14-B has been placed on a <strong>48-Hour Priority Hold</strong> in our digital escrow register with full Bangladesh Bank NRTA repatriation rights.”
+                  </p>
+                  <div class="text-[10px] text-slate-400 font-mono-num text-right mt-1">02:14 AM • Sent ✓✓</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Interactive Executive Capital Relief Sliders -->
+          <section class="bg-[#0F1722] border border-[#1E293B] rounded-2xl p-5 sm:p-6 shadow-xl glow-rose">
+            <h3 class="font-display font-bold text-white text-base mb-1">${client.name} — Executive Capital Relief Sliders</h3>
+            <p class="text-xs text-slate-400 mb-4">Slide to evaluate bank overdraft interest savings on unabsorbed stock</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div class="bg-[#080C12] border border-[#1E293B] rounded-xl p-3.5">
+                <div class="text-slate-400">Unabsorbed Stock: <strong class="text-[#38BDF8] font-mono-num">65,000 sq ft</strong></div>
+                <div class="text-[11px] text-slate-500 mt-1">Avg Price: ৳ 31,800/sqft</div>
+              </div>
+              <div class="bg-rose-950/20 border border-rose-500/40 rounded-xl p-3.5">
+                <div class="text-rose-300 font-semibold">Monthly Idle Overdraft Bleed</div>
+                <div class="text-xl font-mono-num font-bold text-rose-400 mt-1">৳ 2.41 Cr / mo</div>
+                <div class="text-[10px] text-rose-400/80">At 14.0% Commercial OD Drag</div>
+              </div>
+              <div class="bg-emerald-950/20 border border-emerald-500/40 rounded-xl p-3.5">
+                <div class="text-emerald-300 font-semibold">90-Day Syndicate Cashflow Unlock</div>
+                <div class="text-xl font-mono-num font-bold text-emerald-400 mt-1">৳ 31.01 Cr</div>
+                <div class="text-[10px] text-emerald-300/80">15% Immediate Liquid Recovery</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Official Proposal & Mushak-6.3 -->
+          <section class="bg-[#0F1722] border border-[#1E293B] rounded-2xl p-5 sm:p-6 shadow-xl">
+            <h3 class="font-display font-bold text-white text-base mb-2">Verified Settlement Channels & Binding Covenant</h3>
+            <div class="bg-white text-slate-900 rounded-xl p-6 text-xs space-y-3">
+              <div class="flex justify-between border-b pb-2 font-mono-num">
+                <div><strong>AIS ENTERPRISE SYSTEMS</strong> • BIN: ${CORPORATE_INFO.nbr.bin}</div>
+                <div>Code: ${CORPORATE_INFO.nbr.serviceCode} (5% VAT)</div>
+              </div>
+              <p><strong>Exclusive Client:</strong> ${client.name} | Project: ${client.flagshipProject}</p>
+              <p class="bg-emerald-50 border border-emerald-300 p-2.5 rounded font-serif italic text-emerald-950">
+                <strong>Warranty:</strong> "${CORPORATE_INFO.warranty}"
+              </p>
+              <div class="pt-2 border-t text-[11px] font-mono-num grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div>
+                  <strong>Bank:</strong> ${CORPORATE_INFO.trustBank.bankName} (${CORPORATE_INFO.trustBank.branch})<br/>
+                  <strong>A/C No:</strong> ${CORPORATE_INFO.trustBank.accountNumber}<br/>
+                  <strong>MFS:</strong> bKash: ${CORPORATE_INFO.mfs.bkash} | Nagad: ${CORPORATE_INFO.mfs.nagad}
+                </div>
+                <div class="text-right flex flex-col justify-end">
+                  <div class="font-bold">${CORPORATE_INFO.founder}</div>
+                  <div class="text-slate-600">${CORPORATE_INFO.founderTitle}</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- Discreet Admin Return Gate -->
+        <footer class="border-t border-slate-900 py-4 px-6 flex items-center justify-between text-[11px] text-slate-500">
+          <div>© ${new Date().getFullYear()} AIS Enterprise Systems (Army IBA Specialist) • All Rights Reserved.</div>
+          <button onclick="promptAdminUnlock()" class="flex items-center gap-1 text-slate-600 hover:text-slate-400 font-mono-num text-[10px]">
+            🔒 Admin Unlock
+          </button>
+        </footer>
+      `;
+    }
+
+    function renderAdminView(container) {
+      container.innerHTML = `
+        <!-- Sticky Command Header -->
+        <header class="sticky top-0 z-50 bg-[#080C12]/95 backdrop-blur-md border-b border-[#1E293B]">
+          <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-slate-900 border border-[#38BDF8]/60 glow-cyan overflow-hidden shrink-0 flex items-center justify-center shadow-[inset_0_1px_0_0_rgba(56,189,248,0.4)]">
+                <img src="/assets/aistudio/images_3598e51a.jfif" alt="AIS Official Logo" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <span class="font-display font-bold text-white text-sm sm:text-base tracking-wide block">
+                  AIS ENTERPRISE SYSTEMS
+                </span>
+                <span class="text-[11px] text-slate-400 font-mono-num">
+                  Rizum Khan (Founder & Final Signatory) • BIN: 004982103-0101
+                </span>
+              </div>
+            </div>
+
+            <!-- Scoreboard & Controls -->
+            <div class="flex items-center gap-2.5">
+              <div class="px-3 py-1 rounded-full bg-slate-900 border border-emerald-500/40 text-emerald-400 font-mono-num text-xs font-bold flex items-center gap-1.5 glow-emerald">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>৳ ${(lockedAmountBDT / 100000).toFixed(1)}L / ৳ 1.00 Cr Net</span>
+              </div>
+              <button onclick="toggleLang()" class="px-2.5 py-1 rounded-lg bg-[#0F1722] hover:bg-slate-800 border border-[#1E293B] text-slate-200 text-xs font-bangla">
+                ${currentLang === 'en' ? '🇧🇩 বাংলা' : '🇬🇧 EN'}
+              </button>
+              <button onclick="lockDeposit()" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1">
+                + Lock Deposit
+              </button>
+            </div>
+          </div>
+
+          <!-- Navigation Tabs -->
+          <nav class="max-w-7xl mx-auto px-4 py-1.5 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-1 text-xs">
+            ${[
+              { id: 'whatsapp', label: '📱 1-Tap WhatsApp' },
+              { id: 'audit', label: '🏗️ 10s Cold Audit' },
+              { id: 'approve', label: '🛡️ Approve & Lock' },
+              { id: 'invoice', label: '🧾 Mushak-6.3' },
+              { id: 'sandbox', label: '🏢 Client Sandbox' },
+              { id: 'vault', label: '📄 4-in-1 PDF Vault' },
+              { id: 'webhook', label: '⚡ Webhook & RLS' }
+            ].map(t => `
+              <button onclick="switchTab('${t.id}')" class="py-1.5 px-2 rounded-lg font-medium text-center transition ${currentTab === t.id ? 'bg-[#38BDF8] text-slate-950 font-bold' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'}">
+                ${t.label}
+              </button>
+            `).join('')}
+          </nav>
+        </header>
+
+        <!-- Admin Body -->
+        <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-5 pb-20">
+          ${renderTabContent()}
+        </main>
+      `;
+    }
+
+    function renderTabContent() {
+      if (currentTab === 'whatsapp') {
+        const client = VERIFIED_TARGETS[0];
+        const link = `${window.location.origin}${window.location.pathname}?demo=${client.slug}#sandbox`;
+        return `
+          <div class="space-y-6">
+            <!-- Client Demo Bar -->
+            <div class="bg-[#0F1722] border border-[#1E293B] rounded-2xl p-4 glow-cyan flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+              <div class="truncate">
+                <span class="text-slate-400">Locked Client URL:</span>
+                <span class="font-mono-num text-[#38BDF8] ml-2">${link}</span>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="navigator.clipboard.writeText('${link}'); alert('Demo link copied!')" class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200">
+                  Copy Demo Link
+                </button>
+                <button onclick="testClientView('${client.slug}')" class="px-4 py-1.5 rounded-lg bg-[#38BDF8] text-slate-950 font-bold">
+                  👁️ Test Locked Client View
+                </button>
+              </div>
+            </div>
+
+            <!-- WhatsApp Auto-Dialer Feature -->
+            <div class="bg-gradient-to-br from-[#0F1722] via-[#09101A] to-[#0F1722] border-2 border-emerald-500/50 rounded-2xl p-4 sm:p-5 shadow-2xl glow-emerald">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#1E293B]">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-950/80 border border-emerald-500/60 flex items-center justify-center text-emerald-400 text-lg">
+                    📞
+                  </div>
+                  <div>
+                    <h3 class="font-display font-bold text-white text-base">WhatsApp Auto-Dialer & Deep Link Engine</h3>
+                    <p class="text-xs text-slate-400">Native mobile deep link (whatsapp://send) with pre-filled boardroom CTA & demo link</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-mono-num font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-500/40">
+                  ⚡ MOBILE PROTOCOL: whatsapp://send
+                </span>
+              </div>
+
+              <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="space-y-3">
+                  <div>
+                    <label class="block text-slate-300 font-medium mb-1">Target Developer (20 Verified):</label>
+                    <select id="autodialerSelect" onchange="clientSlug = this.value; renderApp();" class="w-full bg-[#080C12] border border-slate-700 text-white rounded-lg p-2 focus:outline-none focus:border-emerald-400">
+                      ${VERIFIED_TARGETS.map(t => `<option value="${t.slug}" ${t.slug === client.slug ? 'selected' : ''}>${t.name} (${t.flagshipProject})</option>`).join('')}
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-slate-300 font-medium mb-1">Target Mobile (BD +880):</label>
+                    <input type="text" id="autodialerPhone" value="${client.phone || '8801711590123'}" class="w-full bg-[#080C12] border border-slate-700 text-emerald-400 font-mono-num rounded-lg p-2 font-bold focus:outline-none focus:border-emerald-400" />
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-[#080C12] border border-slate-800 text-[11px] text-slate-400">
+                    <div>Project: <strong class="text-white">${client.flagshipProject}</strong> (${client.bdtPrice})</div>
+                    <div class="text-[#38BDF8] mt-0.5 font-mono-num">Deep Link: ${link}</div>
+                  </div>
+                </div>
+
+                <div class="space-y-3 flex flex-col justify-between">
+                  <div>
+                    <label class="block text-slate-300 font-medium mb-1">Pre-Filled Call-to-Action Payload:</label>
+                    <div class="bg-[#080C12] border border-slate-800 rounded-lg p-2.5 text-[11px] text-slate-200 leading-relaxed font-sans max-h-36 overflow-y-auto">
+                      Assalamu Alaikum ${client.name} Leadership. This is Rizum Khan (AIS Enterprise Systems). We have audited "${client.flagshipProject}" regarding the 14% bank overdraft drag. Explore your live interactive sandbox here: ${link}
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <a href="whatsapp://send?phone=${client.phone || '8801711590123'}&text=${encodeURIComponent(`Assalamu Alaikum ${client.name} Leadership. This is Rizum Khan (AIS Enterprise Systems). We have audited "${client.flagshipProject}" regarding the 14% bank overdraft drag. Explore your live interactive sandbox here: ${link}`)}" class="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 text-white font-bold text-center transition flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-950">
+                      <span>⚡ 1-Tap Mobile Auto-Dial</span>
+                    </a>
+                    <a href="https://wa.me/${client.phone || '8801711590123'}?text=${encodeURIComponent(`Assalamu Alaikum ${client.name} Leadership. This is Rizum Khan (AIS Enterprise Systems). We have audited "${client.flagshipProject}" regarding the 14% bank overdraft drag. Explore your live interactive sandbox here: ${link}`)}" target="_blank" class="py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold transition">
+                      Web WA
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Target Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              ${VERIFIED_TARGETS.map(t => {
+                const targetLink = `${window.location.origin}${window.location.pathname}?demo=${t.slug}#sandbox`;
+                const targetMsg = encodeURIComponent(`Assalamu Alaikum ${t.name} Leadership. This is Rizum Khan (AIS Enterprise Systems). Explore your live turnaround prototype for ${t.flagshipProject}: ${targetLink}`);
+                return `
+                  <div class="bg-[#0F1722] border border-[#1E293B] rounded-xl p-4 space-y-2 text-xs">
+                    <div class="flex justify-between items-start">
+                      <h4 class="font-display font-bold text-white text-sm">${t.name}</h4>
+                      <span class="font-mono-num text-emerald-400 font-semibold">${t.bdtPrice}</span>
+                    </div>
+                    <p class="text-slate-400">${t.flagshipProject}</p>
+                    <div class="pt-2 flex items-center justify-between gap-1.5">
+                      <a href="whatsapp://send?phone=${t.phone || '8801711590123'}&text=${targetMsg}" class="flex-1 py-1 px-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-center text-[11px]">
+                        ⚡ Auto-Dial
+                      </a>
+                      <a href="https://wa.me/${t.phone || '8801711590123'}?text=${targetMsg}" target="_blank" class="p-1 px-2 rounded-lg bg-slate-800 text-slate-300 text-[11px]">
+                        Web
+                      </a>
+                      <button onclick="testClientView('${t.slug}')" class="text-[#38BDF8] font-bold hover:underline text-[11px] ml-1">
+                        👁️ Preview
+                      </button>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `;
+      } else if (currentTab === 'audit') {
+        return `
+          <div class="bg-[#0F1722] border border-[#1E293B] rounded-2xl p-6 space-y-4">
+            <h2 class="font-display font-bold text-xl text-white">8-Katha REDMA 2010 Section 14/15 Forensic Audit</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono-num">
+              <div class="bg-[#080C12] p-4 rounded-xl border border-rose-500/40">
+                <div class="text-rose-400 font-bold">REDMA Sec 14 Refund Shock</div>
+                <div class="text-2xl text-white mt-1">BDT 1.98 Cr</div>
+                <div class="text-slate-400">90% refund in 90 days on cancellations</div>
+              </div>
+              <div class="bg-[#080C12] p-4 rounded-xl border border-amber-500/40">
+                <div class="text-amber-400 font-bold">REDMA Sec 15 Delay Drag</div>
+                <div class="text-2xl text-white mt-1">BDT 49.50 L/yr</div>
+                <div class="text-slate-400">15%/yr statutory interest</div>
+              </div>
+              <div class="bg-[#080C12] p-4 rounded-xl border border-[#38BDF8]/40">
+                <div class="text-[#38BDF8] font-bold">Total Single-Site Annual Bleed</div>
+                <div class="text-2xl text-white mt-1">BDT 1.2413 Cr/yr</div>
+                <div class="text-slate-400">Includes Bank OD + displacement rent</div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (currentTab === 'approve') {
+        return `
+          <div class="bg-[#0F1722] border border-[#1E293B] rounded-2xl p-6 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl bg-slate-900 border border-[#38BDF8]/60 glow-cyan overflow-hidden shrink-0 flex items-center justify-center shadow-[inset_0_1px_0_0_rgba(56,189,248,0.4)]">
+                <img src="/assets/aistudio/images_3598e51a.jfif" alt="AIS Official Logo" class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <h2 class="font-display font-bold text-xl text-white">90-Day ৳1.00 Crore Deal Queue & Signature Lock</h2>
+                <p class="text-xs text-slate-400">Rizum Khan — 1-Tap wire transfer reconciliation & fund locking</p>
+              </div>
+            </div>
+            <div class="bg-[#080C12] rounded-xl border border-slate-800 p-4 space-y-3 text-xs">
+              <div class="flex justify-between items-center py-2 border-b border-slate-800">
+                <div>
+                  <div class="font-bold text-white">TX-901 • Sheltech (Pvt.) Ltd.</div>
+                  <div class="text-slate-400">50% Mobilization Retainer • Trust Bank PLC</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-emerald-400 font-mono-num font-bold">৳ 23,00,000</div>
+                  <span class="text-[10px] text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/40">Locked & Mobilized</span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-slate-800">
+                <div>
+                  <div class="font-bold text-white">TX-902 • Navana Real Estate Ltd.</div>
+                  <div class="text-slate-400">50% Mobilization Retainer • Trust Bank PLC</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-emerald-400 font-mono-num font-bold">৳ 23,00,000</div>
+                  <span class="text-[10px] text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/40">Locked & Mobilized</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (currentTab === 'sandbox') {
+        const client = VERIFIED_TARGETS[0];
+        return `
+          <div class="bg-[#0F1722] border border-[#1E293B] rounded-2xl p-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h2 class="font-display font-bold text-xl text-white">Admin Sandbox Inspection</h2>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-slate-400">Brand Switcher:</span>
+                <select id="sandboxDevSelect" onchange="clientSlug = this.value; renderApp();" class="bg-[#080C12] border border-slate-700 text-xs text-slate-200 rounded p-1.5">
+                  ${VERIFIED_TARGETS.map(t => `<option value="${t.slug}" ${t.slug === clientSlug ? 'selected' : ''}>${t.name}</option>`).join('')}
+                </select>
+              </div>
+            </div>
+            <p class="text-xs text-slate-300">Target selected: <strong>${client.name}</strong> (${client.flagshipProject})</p>
+          </div>
+        `;
+      } else if (currentTab === 'invoice') {
+        return `
+          <div class="bg-[#0F1722] border border-[#1E293B] rounded-2xl p-6 space-y-4">
+            <h2 class="font-display font-bold text-xl text-white">National Board of Revenue (NBR) Mushak-6.3 Generator</h2>
+            <div class="bg-white text-slate-900 p-6 rounded-xl text-xs font-mono-num space-y-2">
+              <div class="text-center font-bold text-sm">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার | জাতীয় রাজস্ব বোর্ড<br/>কর চালানপত্র (মূসক-৬.৩)</div>
+              <div class="flex justify-between border-b pb-2 pt-2">
+                <div>চালান নং: 2026-2027-DHK-901<br/>সরবরাহকারী: AIS Enterprise Systems</div>
+                <div class="text-right">BIN: 004982103-0101<br/>কোড: S099.10 (5% ভ্যাট)</div>
+              </div>
+              <div class="py-2 border-b">মোট পরিশোধযোগ্য: ৳ 24,15,000 (ভ্যাট সহ)</div>
+            </div>
+          </div>
+        `;
+      } else if (currentTab === 'vault') {
+        return `
+          <div class="bg-[#0F1722] border border-[#1E293B] rounded-2xl p-6 space-y-4">
+            <h2 class="font-display font-bold text-xl text-white">AIS 5-in-1 Corporate Document Vault & Stitch Spec</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+              <div class="bg-[#080C12] border border-slate-800 p-4 rounded-xl">
+                <div class="font-bold text-white mb-1">Doc 1: Master Operating Manual</div>
+                <p class="text-slate-400">90-Day ৳1 Crore math & boardroom protocol</p>
+              </div>
+              <div class="bg-[#080C12] border border-slate-800 p-4 rounded-xl">
+                <div class="font-bold text-white mb-1">Doc 2: Tier-1 RE Turnaround Dossier</div>
+                <p class="text-slate-400">10 Market Leaders diagnosed vulnerability breakdown</p>
+              </div>
+              <div class="bg-[#080C12] border border-slate-800 p-4 rounded-xl">
+                <div class="font-bold text-white mb-1">Doc 3: 1-Page Proposal & MSA</div>
+                <p class="text-slate-400">Binding 60-day 5x warranty & Trust Bank PLC terms</p>
+              </div>
+              <div class="bg-[#080C12] border border-slate-800 p-4 rounded-xl">
+                <div class="font-bold text-white mb-1">Doc 4: NBR Mushak-6.3 Tax Invoice</div>
+                <p class="text-slate-400">Statutory 5% VAT compliant bilingual invoice</p>
+              </div>
+              <div class="bg-[#080C12] border border-[#38BDF8]/40 p-4 rounded-xl glow-cyan">
+                <div class="font-bold text-[#38BDF8] mb-1">Doc 5: Google Stitch UI Spec</div>
+                <p class="text-slate-300">Tokens: Obsidian #080C12, Navy #0F1722, Cyan #38BDF8, Emerald #10B981, Rose #F43F5E</p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (currentTab === 'webhook') {
+        return `
+          <div class="bg-[#0F1722] border border-[#1E293B] rounded-2xl p-6 space-y-4">
+            <h2 class="font-display font-bold text-xl text-white">Meta Cloud API Webhook & Supabase RLS Inspector</h2>
+            <div class="bg-[#080C12] p-4 rounded-xl border border-slate-800 font-mono-num text-xs text-slate-300">
+              <span class="text-emerald-400">● Primary: WhatsApp Graph v21.0 [ACTIVE 0.2s]</span><br/>
+              <span class="text-slate-400">● Secondary: Steadfast Courier COD [STANDBY]</span><br/>
+              <span class="text-slate-400">● Tertiary: SSL Wireless BD SMS [STANDBY]</span>
+            </div>
+          </div>
+        `;
+      }
+      return '';
+    }
+
+    // ACTIONS
+    function switchTab(tabId) {
+      currentTab = tabId;
+      renderApp();
+    }
+
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'bn' : 'en';
+      renderApp();
+    }
+
+    function lockDeposit() {
+      playChime();
+      lockedAmountBDT += 2300000;
+      alert('Deposit of ৳23,00,000 locked to Trust Bank PLC! Chime played.');
+      renderApp();
+    }
+
+    function testClientView(slug) {
+      isClientMode = true;
+      clientSlug = slug;
+      const url = new URL(window.location.href);
+      url.searchParams.set('demo', slug);
+      window.history.pushState({}, '', url.toString());
+      renderApp();
+    }
+
+    function promptAdminUnlock() {
+      const pin = prompt('Enter Rizum Khan 4-digit PIN to exit Client Preview Mode:');
+      if (pin === '1214') {
+        isClientMode = false;
+        const url = new URL(window.location.href);
+        url.searchParams.delete('demo');
+        url.searchParams.delete('client');
+        window.history.replaceState({}, '', url.pathname + url.hash);
+        renderApp();
+      } else if (pin !== null) {
+        alert('Invalid PIN. Access restricted to Rizum Khan.');
+      }
+    }
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', renderApp);
+    renderApp();
+  </script>
+</body>
+</html>
